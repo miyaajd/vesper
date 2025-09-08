@@ -313,14 +313,15 @@
       </ul>
     </div>
     <!-- product -->
-    <div class="product" style="width: 100%; display: flex">
+
+    <div class="product" style="width: 100%; display: flex; position: relative">
       <div
         class="dscr"
         style="
           width: 50%;
           display: flex;
           flex-direction: column;
-          padding: 150px 0;
+          padding: 100px 0;
           align-items: center;
           justify-content: space-between;
         "
@@ -381,14 +382,146 @@
         </button>
       </div>
       <div
+        class="dscr"
+        style="
+          width: 50%;
+          display: none;
+          flex-direction: column;
+          padding: 100px 0;
+          align-items: center;
+          justify-content: space-between;
+        "
+      >
+        <div class="pro-title">
+          <p
+            style="
+              font-family: 'Times New Roman', serif;
+              font-size: 36px;
+              color: #333;
+            "
+          >
+            Best Product
+          </p>
+        </div>
+        <div
+          class="pro-dscr"
+          style="
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 2;
+          "
+        >
+          <h5 style="font-size: 18px; font-weight: 500; color: #333">
+            Vesper Rosa Selvatica Hair Perfume Oil
+          </h5>
+          <span style="color: #333; margin-bottom: 48px"
+            >베스페르 로사 셀바티카 퍼퓸 헤어 오일</span
+          >
+          <span style="color: #aaa; text-decoration: line-through"
+            >42,000원</span
+          >
+          <p style="color: #333">
+            26,000원
+            <span
+              style="
+                color: #fff;
+                background-color: #333;
+                padding: 3px 4px 2px;
+                font-size: 14px;
+              "
+              >38%</span
+            >
+          </p>
+        </div>
+        <button
+          style="
+            all: unset;
+            cursor: pointer;
+            border: 1px solid #333;
+            padding: 10px 32px;
+            font-size: 14px;
+            line-height: 1;
+          "
+        >
+          SHOP NOW
+        </button>
+      </div>
+      <div
+        class="dscr"
+        style="
+          width: 50%;
+          display: none;
+          flex-direction: column;
+          padding: 100px 0;
+          align-items: center;
+          justify-content: space-between;
+        "
+      >
+        <div class="pro-title">
+          <p
+            style="
+              font-family: 'Times New Roman', serif;
+              font-size: 36px;
+              color: #333;
+            "
+          >
+            Best Product
+          </p>
+        </div>
+        <div
+          class="pro-dscr"
+          style="
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 2;
+          "
+        >
+          <h5 style="font-size: 18px; font-weight: 500; color: #333">
+            Vesper White Bianco Hair Perfume Oil
+          </h5>
+          <span style="color: #333; margin-bottom: 48px"
+            >베스페르 화이트 비앙코 퍼퓸 헤어 오일</span
+          >
+          <span style="color: #aaa; text-decoration: line-through"
+            >42,000원</span
+          >
+          <p style="color: #333">
+            26,000원
+            <span
+              style="
+                color: #fff;
+                background-color: #333;
+                padding: 3px 4px 2px;
+                font-size: 14px;
+              "
+              >38%</span
+            >
+          </p>
+        </div>
+        <button
+          style="
+            all: unset;
+            cursor: pointer;
+            border: 1px solid #333;
+            padding: 10px 32px;
+            font-size: 14px;
+            line-height: 1;
+          "
+        >
+          SHOP NOW
+        </button>
+      </div>
+      <div
         class="product-img"
-        style="width: 50%; background-color: #ebebf2; padding: 150px 0"
+        style="width: 50%; background-color: #e9e9ec; padding: 100px 0"
       >
         <img
           src="images/fi.png"
           alt="fi"
           style="
-            width: 50%;
+            width: 55%;
             display: block;
             display: flex;
             align-items: center;
@@ -396,6 +529,46 @@
             margin: auto;
           "
         />
+        <img
+          src="images/ro.png"
+          alt="fi"
+          style="
+            width: 55%;
+            display: block;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            margin: auto;
+          "
+        />
+        <img
+          src="images/wh.png"
+          alt="fi"
+          style="
+            width: 55%;
+            display: block;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            margin: auto;
+          "
+        />
+      </div>
+      <div
+        class="pagenation"
+        id="pagenation"
+        style="
+          position: absolute;
+          right: 51%;
+          top: 50%;
+          transform: translateX(-50%);
+          font-size: 38px;
+          color: #1f1f1f;
+          font-weight: 300;
+          cursor: pointer;
+        "
+      >
+        〉
       </div>
     </div>
     <!-- footer -->
@@ -513,5 +686,78 @@
         >
       </div>
     </footer>
+    <!--  -->
+    <script>
+      window.addEventListener("load", function () {
+        // 루트 컨테이너
+        const root = document.querySelector(".product");
+        if (!root) return;
+
+        // 상단의 3개 상품 설명 블록(.dscr) + 우측 이미지들
+        const pages = root.querySelectorAll(":scope > .dscr"); // 첫 번째 보이는 .dscr 포함 3개
+        const imgs = root.querySelectorAll(".product-img img"); // 이미지 3개
+        const btn = document.getElementById("pagenation"); // 〉 버튼
+
+        const n = Math.min(pages.length, imgs.length);
+        let i = 0;
+
+        // 보여주기 함수
+        function show(idx) {
+          for (let k = 0; k < n; k++) {
+            pages[k].style.display = k === idx ? "flex" : "none";
+            imgs[k].style.display = k === idx ? "block" : "none";
+          }
+        }
+
+        // 초기 상태 정리 (HTML에 남아있는 display 속성 무시)
+        show(0);
+
+        // 다음/이전 이동
+        function next() {
+          i = (i + 1) % n;
+          show(i);
+        }
+        function prev() {
+          i = (i - 1 + n) % n;
+          show(i);
+        }
+
+        // 〉 버튼 클릭 → 다음
+        if (btn) btn.addEventListener("click", next);
+
+        // 마우스 오른쪽(컨텍스트)으로 이전
+        if (btn)
+          btn.addEventListener("contextmenu", (e) => {
+            e.preventDefault();
+            prev();
+          });
+
+        // 키보드 좌/우 화살표
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "ArrowRight") next();
+          else if (e.key === "ArrowLeft") prev();
+        });
+
+        // 터치 스와이프 (모바일)
+        let startX = null;
+        root.addEventListener(
+          "touchstart",
+          (e) => {
+            startX = e.touches[0].clientX;
+          },
+          { passive: true }
+        );
+        root.addEventListener(
+          "touchend",
+          (e) => {
+            if (startX == null) return;
+            const dx = e.changedTouches[0].clientX - startX;
+            if (Math.abs(dx) > 40) (dx < 0 ? next : prev)(); // 왼쪽으로 스와이프 → 다음
+            startX = null;
+          },
+          { passive: true }
+        );
+      });
+    </script>
   </body>
 </html>
