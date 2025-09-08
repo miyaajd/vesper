@@ -4,8 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      position: relative;
+    }
+  </style>
 
   <body>
     <div
@@ -100,24 +116,22 @@
               </h3>
               <p>이벤트</p>
             </div>
-            <a
-              href="#event"
-              style="text-decoration: none;"
+            <a href="#event" style="text-decoration: none">
+              <button
+                style="
+                  all: unset;
+                  color: #fff;
+                  font-size: 18px;
+                  font-weight: 700;
+                  padding: 8px 24px;
+                  border: 1.5px solid #fff;
+                  display: block;
+                  cursor: pointer;
+                "
+              >
+                Go To View
+              </button></a
             >
-        <button
-              style="
-                all: unset;
-                color: #fff;
-                font-size: 18px;
-                font-weight: 700;
-                padding: 8px 24px;
-                border: 1.5px solid #fff;
-                display: block;
-                cursor: pointer;
-              "
-            >
-              Go To View
-            </button></a>
           </div>
         </li>
         <li style="width: calc(100% / 3); position: relative; list-style: none">
@@ -175,11 +189,124 @@
       </ul>
       <div
         class="event-section"
-        style="margin: 0; padding: 0; width: 100%; margin-top: 160px;"
+        style="margin: 0; padding: 0; width: 100%; margin-top: 160px"
         id="event"
       >
-        <img src="images/event.png" alt="eventSection" style="width: 100%" />
+        <img
+          src="images/event.png"
+          alt="eventSection"
+          style="width: 80%; margin: auto; display: block"
+        />
       </div>
     </div>
+    <!--  -->
+    <!-- imges -->
+     <img src="images/mid.png" alt="mid">
+     <img src="images/imd2.png" alt="mid">
+    <!-- footer -->
+    <footer
+      class="footer"
+      style="
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        align-items: center;
+        text-align: center;
+        padding: 100px 0;
+        background-color: #ebebf2;
+      "
+    >
+      <div
+        class="company"
+        style="display: flex; flex-direction: column; gap: 24px"
+      >
+        <div class="footer-title">
+          <h2 style="font-size: 18px; color: #333">COMPANY</h2>
+        </div>
+        <ul class="company-list" style="list-style: none">
+          <li style="color: #333; list-style: none">
+            <strong>COMPANY</strong> vesper
+          </li>
+          <li style="color: #333; list-style: none">
+            <strong>CEO</strong> 권민서
+          </li>
+          <li style="color: #333; list-style: none">
+            <strong>BUSINESS LICENCE</strong> 398-11-02783
+            <a href="https://www.ftc.go.kr/bizCommPop.do?wrkr_no=3981102783" style="color: #333">[OPERATOR INFORMATION]</a>
+          </li>
+          <li style="color: #333; list-style: none">
+            <strong>ECOMMERCE PERMIT NO</strong> 2025-인천서구-0923
+          </li>
+          <li style="color: #333; list-style: none">
+            <strong>ADDRESS</strong> 22770 인천광역시 서구 중봉대로 490,
+            청라더리브티아모 A동 1016호
+          </li>
+          <li style="color: #333; list-style: none">
+            <strong>EMAIL</strong> vesper2025@naver.com
+          </li>
+        </ul>
+        <p style="color: #333; font-size: 14px">
+          copyright © Vesper All Rights Reserved.
+        </p>
+      </div>
+      <div class="cs" style="display: flex; flex-direction: column; gap: 24px">
+        <div class="footer-title">
+          <h2 style="font-size: 18px; color: #333">CS CENTER</h2>
+        </div>
+        <ul class="cs-list" style="list-style: none">
+          <li style="color: #333; list-style: none">
+            <strong>TEL</strong> 070-7602-7713
+          </li>
+          <li style="color: #333; list-style: none">
+            <strong>OPEN</strong> 11:00am ~ 5:00pm
+          </li>
+          <li style="color: #333; list-style: none">
+            <strong>LUNCH TIME</strong> 12:00pm ~ 1:00pm
+          </li>
+          <li style="color: #333; list-style: none">
+            <strong>SAT, SUN, HOLIDAY OFF</strong>
+          </li>
+        </ul>
+        <div
+          class="icons"
+          style="
+            color: #333;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            justify-content: center;
+          "
+        >
+          <a
+            href="https://www.instagram.com/official.vesper?igsh=MTlhMG5henExcTg3bA=="
+            ><i
+              class="fa-brands fa-instagram"
+              style="font-size: 26px; display: inline-block; color: #333"
+            ></i
+          ></a>
+          <a href="http://pf.kakao.com/_HAzPn">
+            <i
+              class="fa-brands fa-kakao-talk"
+              style="font-size: 20px; display: inline-block; color: #333"
+            ></i>
+          </a>
+        </div>
+      </div>
+      <div
+        class="personal"
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          line-height: 1.5;
+        "
+      >
+        <a href="https://vesper.kr/?mode=policy" style="text-decoration: none; color: #333">이용약관</a>
+        <a href="https://vesper.kr/?mode=privacy" style="text-decoration: none; color: #333; font-weight: 600"
+          >개인정보처리방침</a
+        >
+      </div>
+    </footer>
   </body>
 </html>
