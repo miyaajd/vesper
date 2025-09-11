@@ -384,61 +384,7 @@
             });
         });
 
-(() => {
-  // 부모(origin) 지정: 보안 위해 referrer에서 추출 (없으면 * 로 폴백)
-  let parentOrigin = "*";
-  try {
-    if (document.referrer) parentOrigin = new URL(document.referrer).origin;
-  } catch (_) {}
 
-  const MSG_TYPE = "IFRAME_HEIGHT";
-
-  // 문서 실제 높이 계산 (여러 후보 중 최대값)
-  const calcHeight = () => {
-    const de = document.documentElement;
-    const b  = document.body;
-    return Math.max(
-      de.scrollHeight, de.offsetHeight, de.clientHeight,
-      b.scrollHeight,  b.offsetHeight,  b.clientHeight
-    );
-  };
-
-  // rAF로 경량 스로틀된 전송 함수
-  let rafId = 0;
-  const sendHeight = () => {
-    cancelAnimationFrame(rafId);
-    rafId = requestAnimationFrame(() => {
-      const h = calcHeight();
-      parent.postMessage({ type: MSG_TYPE, height: h }, parentOrigin);
-    });
-  };
-
-  // 초기/지연 재전송 (웹폰트·이미지 늦게 로드 대비)
-  window.addEventListener("load", () => {
-    sendHeight();
-    setTimeout(sendHeight, 150);
-    setTimeout(sendHeight, 500);
-    setTimeout(sendHeight, 1200);
-  });
-
-  // 반응형·회전·뷰포트 변화
-  window.addEventListener("resize", sendHeight);
-  window.addEventListener("orientationchange", sendHeight);
-
-  // DOM/레이아웃 변화 감지
-  if ("ResizeObserver" in window) {
-    new ResizeObserver(sendHeight).observe(document.documentElement);
-    new ResizeObserver(sendHeight).observe(document.body);
-  }
-  new MutationObserver(sendHeight).observe(document.body, {
-    childList: true, subtree: true, attributes: true, characterData: true
-  });
-
-  // 폰트 로딩 이벤트(지원 브라우저)
-  if (document.fonts && document.fonts.addEventListener) {
-    document.fonts.addEventListener("loadingdone", sendHeight);
-  }
-})();
 
     </script>
 </body>
