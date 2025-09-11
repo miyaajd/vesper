@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Slider</title>
+    <style>
+        /* ===== VESPER: Product slider ===== */
+        .v-product {
+            width: 100%;
+            display: flex;
+            position: relative;
+        }
+
+        /* 아임웹 충돌 방지를 위해 !important 추가 */
+        .v-product__desc {
+            width: 55%;
+            display: none !important;
+            flex-direction: column;
+            padding: 100px 0;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* 아임웹 충돌 방지를 위해 !important 추가 */
+        .v-product__desc.is-active {
+            display: flex !important;
+        }
+
+        .v-product__title p {
+            font-family: 'Times New Roman', serif;
+            font-size: 36px;
+            color: #333;
+        }
+
+        .v-product__dscr {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 2;
+            color: #333;
+        }
+
+        .v-product__dscr h5 {
+            font-size: 18px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .v-product__dscr span {
+            color: #333;
+        }
+
+        .v-product__dscr .strike {
+            color: #aaa;
+            text-decoration: line-through;
+        }
+
+        .v-product__dscr .discount {
+            color: #fff;
+            background-color: #333;
+            padding: 3px 4px 2px;
+            font-size: 14px;
+        }
+
+        .v-product__btn {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .v-product__btn button {
+            all: unset;
+            cursor: pointer;
+            border: 1px solid #333;
+            padding: 10px 32px;
+            font-size: 14px;
+            line-height: 1;
+            display: inline-block;
+        }
+
+        .v-product__img {
+            width: 45%;
+            background-color: #e9e9ec;
+            padding: 100px 0;
+        }
+
+        /* 아임웹 충돌 방지를 위해 !important 추가 */
+        .v-product__img img {
+            width: 45%;
+            display: none !important;
+            margin: 0 auto;
+        }
+
+        /* 아임웹 충돌 방지를 위해 !important 추가 */
+        .v-product__img img.is-active {
+            display: block !important;
+        }
+
+        .v-product__pager {
+            position: absolute;
+            right: 48% !important;
+            top: 50%;
+            transform: translateX(-50%);
+            font-size: 32px;
+            color: #1f1f1f;
+            font-weight: 300;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        /* 반응형(옵션) : 좁은 화면에서 세로 스택 */
+        @media (max-width: 960px) {
+            .v-product {
+                flex-direction: column;
+                gap: 32px;
+            }
+
+            .v-product__desc,
+            .v-product__img {
+                width: 100%;
+                padding: 60px 0;
+            }
+
+            .v-product__img img {
+                width: 60% !important;
+            }
+
+            .v-product__pager {
+                right: 10px !important;
+                top: 190px;
+                font-size: 28px;
+            }
+        }
+
+        /* 반응형 */
+        @media (max-width: 768px) {
+            .v-product {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .v-product__desc,
+            .v-product__img {
+                width: 100%;
+                padding: 40px 0;
+            }
+
+            .v-product__title p {
+                font-size: 24px;
+            }
+
+            .v-product__dscr {
+                line-height: 1.7;
+                gap: 10px;
+            }
+
+            .v-product__dscr h5 {
+                font-size: 16px;
+                text-align: center;
+            }
+
+            .v-product__dscr span {
+                font-size: 14px;
+            }
+
+            .v-product__dscr p {
+                font-size: 16px;
+            }
+
+            .v-product__dscr .discount {
+                font-size: 12px;
+                padding: 2px 4px;
+            }
+
+            .v-product__btn button {
+                padding: 8px 20px;
+                font-size: 13px;
+            }
+
+            .v-product__img {
+                padding-top: 20px;
+            }
+
+            .v-product__img img {
+                width: 65% !important;
+            }
+
+            .v-product__pager {
+                right: 10px !important;
+                top: 155px;
+                font-size: 28px;
+            }
+        }
+
+        /* 초소형(아이폰 SE 등) 보정 */
+        @media (max-width: 360px) {
+            .v-product__title p {
+                font-size: 22px;
+            }
+
+            .v-product__dscr h5 {
+                font-size: 15px;
+            }
+
+            .v-product__dscr p {
+                font-size: 15px;
+            }
+
+            .v-product__img img {
+                width: 70% !important;
+            }
+
+            .v-product__btn button {
+                font-size: 12px;
+                padding: 8px 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="v-product">
+        <div class="v-product__desc">
+            <div class="v-product__title">
+                <p>Best Product</p>
+            </div>
+            <div class="v-product__dscr">
+                <h5>Vesper Fiore Shell Hair Perfume Oil</h5>
+                <span style="margin-bottom:48px;">베스페르 피오레 쉘 퍼퓸 헤어 오일</span>
+                <span class="strike">42,000원</span>
+                <p>
+                    26,000원
+                    <span class="discount">38%</span>
+                </p>
+            </div>
+            <a class="v-product__btn" href="https://www.vesper.kr/shop">
+                <button>SHOP NOW</button>
+            </a>
+        </div>
+
+        <div class="v-product__desc">
+            <div class="v-product__title">
+                <p>Best Product</p>
+            </div>
+            <div class="v-product__dscr">
+                <h5>Vesper Rosa Selvatica Hair Perfume Oil</h5>
+                <span style="margin-bottom:48px;">베스페르 로사 셀바티카 퍼퓸 헤어 오일</span>
+                <span class="strike">42,000원</span>
+                <p>
+                    26,000원
+                    <span class="discount">38%</span>
+                </p>
+            </div>
+            <a class="v-product__btn" href="https://www.vesper.kr/shop">
+                <button>SHOP NOW</button>
+            </a>
+        </div>
+
+        <div class="v-product__desc">
+            <div class="v-product__title">
+                <p>Best Product</p>
+            </div>
+            <div class="v-product__dscr">
+                <h5>Vesper White Bianco Hair Perfume Oil</h5>
+                <span style="margin-bottom:48px;">베스페르 화이트 비앙코 퍼퓸 헤어 오일</span>
+                <span class="strike">42,000원</span>
+                <p>
+                    26,000원
+                    <span class="discount">38%</span>
+                </p>
+            </div>
+            <a class="v-product__btn" href="https://www.vesper.kr/shop">
+                <button>SHOP NOW</button>
+            </a>
+        </div>
+
+        <div class="v-product__img">
+            <img src="https://github.com/miyaajd/vesper/blob/main/images/fi.png?raw=true" alt="fiore" />
+            <img src="https://github.com/miyaajd/vesper/blob/main/images/ro.png?raw=true" alt="rosa" />
+            <img src="https://github.com/miyaajd/vesper/blob/main/images/wh.png?raw=true" alt="white bianco" />
+        </div>
+
+        <div class="v-product__pager" id="vProductPager">&rsaquo;</div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const root = document.querySelector(".v-product");
+            if (!root) return;
+
+            const pages = root.querySelectorAll(".v-product__desc");
+            const imgs = root.querySelectorAll(".v-product__img img");
+            const btn = document.getElementById("vProductPager");
+
+            const n = Math.min(pages.length, imgs.length);
+            let i = 0; // 현재 인덱스
+            let timer = null; // 자동재생 핸들
+            const GAP = 3000; // 자동 전환 간격(ms)
+
+            // 슬라이드 전환 함수
+            function showSlide(nextIndex) {
+                // 현재 슬라이드에서 'is-active' 클래스 제거
+                if (pages[i]) pages[i].classList.remove("is-active");
+                if (imgs[i]) imgs[i].classList.remove("is-active");
+
+                // 다음 인덱스 계산 및 'is-active' 클래스 추가
+                i = (nextIndex + n) % n;
+                if (pages[i]) pages[i].classList.add("is-active");
+                if (imgs[i]) imgs[i].classList.add("is-active");
+            }
+
+            // 다음 슬라이드로 이동
+            function next() {
+                showSlide(i + 1);
+            }
+
+            // 이전 슬라이드로 이동
+            function prev() {
+                showSlide(i - 1);
+            }
+
+            // 자동재생 시작
+            function startAuto() {
+                stopAuto();
+                timer = setInterval(next, GAP);
+            }
+
+            // 자동재생 중지
+            function stopAuto() {
+                if (timer) {
+                    clearInterval(timer);
+                    timer = null;
+                }
+            }
+
+            // 초기 상태 설정
+            showSlide(0);
+            startAuto();
+
+            // 사용자 상호작용 이벤트
+            if (btn) {
+                btn.addEventListener("click", () => {
+                    stopAuto();
+                    next();
+                    startAuto();
+                });
+                btn.addEventListener("contextmenu", (e) => {
+                    e.preventDefault();
+                    stopAuto();
+                    prev();
+                    startAuto();
+                });
+            }
+
+            document.addEventListener("keydown", (e) => {
+                if (e.key === "ArrowRight") {
+                    stopAuto();
+                    next();
+                    startAuto();
+                } else if (e.key === "ArrowLeft") {
+                    stopAuto();
+                    prev();
+                    startAuto();
+                }
+            });
+
+            // 터치 스와이프
+            let startX = null;
+            root.addEventListener("touchstart", (e) => {
+                startX = e.touches[0].clientX;
+                stopAuto();
+            }, {
+                passive: true
+            });
+            root.addEventListener("touchend", (e) => {
+                if (startX == null) return;
+                const dx = e.changedTouches[0].clientX - startX;
+                if (Math.abs(dx) > 40) (dx < 0 ? next : prev)();
+                startX = null;
+                startAuto();
+            }, {
+                passive: true
+            });
+        });
+    </script>
+</body>
+
+</html>
