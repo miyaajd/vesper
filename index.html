@@ -1,763 +1,389 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-  </head>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      position: relative;
-      background-color: #fafaf6;
-    }
-  </style>
+<html lang="ko">
 
-  <body>
-    <div
-      class="link-section"
-      style="width: 100%; margin: 0; box-sizing: border-box"
-    >
-      <ul class="link-list" style="display: flex; list-style: none">
-        <li style="width: calc(100% / 3); position: relative; list-style: none">
-          <img
-            src="images/banner3.jpeg"
-            alt="brandstory"
-            style="width: 100%; aspect-ratio: 3/4"
-          />
-          <div
-            class="link-content"
-            style="
-              width: 100%;
-              height: 100%;
-              padding: 18%;
-              position: absolute;
-              top: 0;
-              left: 0;
-              display: flex;
-              flex-direction: column;
-              gap: 80%;
-              align-items: center;
-              text-align: center;
-            "
-          >
-            <div class="txt-box" style="color: #fff">
-              <h3
-                style="
-                  font-size: 32px;
-                  padding-bottom: 2%;
-                  font-family: 'Times New Roman', serif;
-                  font-weight: 500;
-                "
-              >
-                Brand Story
-              </h3>
-              <p>브랜드 스토리</p>
-            </div>
-            <a href="https://www.vesper.kr/STORES" style="text-decoration: none"
-              ><button
-                style="
-                  all: unset;
-                  display: block;
-                  color: #fff;
-                  font-size: 18px;
-                  font-weight: 700;
-                  padding: 8px 24px;
-                  border: 1.5px solid #fff;
-                "
-              >
-                Go To View
-              </button></a
-            >
-          </div>
-        </li>
-        <li style="width: calc(100% / 3); position: relative; list-style: none">
-          <img
-            src="images/event.jpg"
-            alt="event"
-            style="width: 100%; aspect-ratio: 3/4; object-fit: cover"
-          />
-          <div
-            class="link-content"
-            style="
-              width: 100%;
-              height: 100%;
-              padding: 18%;
-              position: absolute;
-              top: 0;
-              left: 0;
-              display: flex;
-              flex-direction: column;
-              gap: 80%;
-              align-items: center;
-              text-align: center;
-            "
-          >
-            <div class="txt-box" style="color: #fff">
-              <h3
-                style="
-                  font-size: 32px;
-                  padding-bottom: 2%;
-                  font-family: 'Times New Roman', serif;
-                  font-weight: 500;
-                "
-              >
-                Event
-              </h3>
-              <p>이벤트</p>
-            </div>
-            <a href="#event" style="text-decoration: none">
-              <button
-                style="
-                  all: unset;
-                  color: #fff;
-                  font-size: 18px;
-                  font-weight: 700;
-                  padding: 8px 24px;
-                  border: 1.5px solid #fff;
-                  display: block;
-                  cursor: pointer;
-                "
-              >
-                Go To View
-              </button></a
-            >
-          </div>
-        </li>
-        <li style="width: calc(100% / 3); position: relative; list-style: none">
-          <img
-            src="images/banner2.jpeg"
-            alt="notice"
-            style="width: 100%; aspect-ratio: 3/4"
-          />
-          <div
-            class="link-content"
-            style="
-              width: 100%;
-              height: 100%;
-              padding: 18%;
-              position: absolute;
-              top: 0;
-              left: 0;
-              display: flex;
-              flex-direction: column;
-              gap: 80%;
-              align-items: center;
-              text-align: center;
-            "
-          >
-            <div class="txt-box" style="color: #fff">
-              <h3
-                style="
-                  font-size: 32px;
-                  padding-bottom: 2%;
-                  font-family: 'Times New Roman', serif;
-                  font-weight: 500;
-                "
-              >
-                Notice
-              </h3>
-              <p>공지사항</p>
-            </div>
-            <a href="https://www.vesper.kr/39" style="text-decoration: none"
-              ><button
-                style="
-                  all: unset;
-                  color: #fff;
-                  font-size: 18px;
-                  font-weight: 700;
-                  padding: 8px 24px;
-                  border: 1.5px solid #fff;
-                  display: block;
-                "
-              >
-                Go To View
-              </button></a
-            >
-          </div>
-        </li>
-      </ul>
-      <div
-        class="event-section"
-        style="margin: 0; padding: 0; width: 100%; margin-top: 160px"
-        id="event"
-      >
-        <img
-          src="images/event.png"
-          alt="eventSection"
-          style="width: 80%; margin: auto; display: block"
-        />
-      </div>
-    </div>
-    <!--  -->
-    <div class="attheendof" style="width: 100%; background-color: #fafaf6">
-      <ul
-        class="at"
-        style="
-          list-style: none;
-          color: #333;
-          text-align: center;
-          display: flex;
-          flex-direction: column;
-          gap: 56px;
-          padding: 200px 0;
-        "
-      >
-        <li
-          style="
-            font-family: 'Times New Roman', serif;
-            list-style: none;
-            color: #333;
-            font-size: 28px;
-          "
-        >
-          At the end of day,<br />
-          a scent for better tomorrow - Vesper stays with you.
-        </li>
-        <li
-          style="
-            font-family: 'Times New Roman', serif;
-            list-style: none;
-            color: #333;
-            font-size: 22px;
-          "
-        >
-          하루의 끝, 오늘보다 나은 내일을 위한 향.<br />
-          베스페르가 당신과 함께 합니다.
-        </li>
-        <li>
-          <a
-            href="https://www.vesper.kr/21"
-            style="
-              text-decoration: none;
-              color: #333;
-              background-color: #ebebf2;
-              font-size: 18px;
-              padding: 12px 24px;
-              border-radius: 3px;
-              display: inline-block;
-            "
-            >View More</a
-          >
-        </li>
-      </ul>
-    </div>
-    <!-- event -->
-    <div
-      class="event"
-      style="width: 100%; background-color: #fafaf6; padding: 100px 0"
-    >
-      <ul
-        class="eventlist"
-        style="
-          list-style: none;
-          color: #333;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 160px;
-        "
-      >
-        <li
-          style="
-            list-style: none;
-            color: #333;
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Slider</title>
+    <style>
+        /* ===== VESPER: Product slider ===== */
+        .v-product {
+            width: 100%;
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 42px;
-          "
-        >
-          <h2 style="font-weight: 500; font-size: 32px">Welcome</h2>
-          <p style="font-size: 20px">회원가입시 즉시 사용가능한 3,000원 지급</p>
-        </li>
-        <li style="list-style: none; color: #333">
-          <div
-            class="line"
-            style="width: 1px; height: 300px; background-color: #cfcfcf"
-          ></div>
-        </li>
-        <li
-          style="
-            list-style: none;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 42px;
-          "
-        >
-          <h2 style="text-align: center; font-weight: 500; font-size: 32px">
-            Launching<br />Event
-          </h2>
-          <p style="text-align: center; line-height: 1.5; font-size: 20px">
-            <strong>Message Card</strong> 3종 중 하나 랜덤 증정 <br /><span
-              style="font-size: 18px; color: #aaa"
-              >(재고 소진시 증정 종료)</span
-            >
-          </p>
-        </li>
-      </ul>
-    </div>
-    <!-- product -->
+            position: relative;
+        }
 
-    <div class="product" style="width: 100%; display: flex; position: relative">
-      <div
-        class="dscr"
-        style="
-          width: 50%;
-          display: flex;
-          flex-direction: column;
-          padding: 100px 0;
-          align-items: center;
-          justify-content: space-between;
-        "
-      >
-        <div class="pro-title">
-          <p
-            style="
-              font-family: 'Times New Roman', serif;
-              font-size: 36px;
-              color: #333;
-            "
-          >
-            Best Product
-          </p>
-        </div>
-        <div
-          class="pro-dscr"
-          style="
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            line-height: 2;
-          "
-        >
-          <h5 style="font-size: 18px; font-weight: 500; color: #333">
-            Vesper Fiore Shell Hair Perfume Oil
-          </h5>
-          <span style="color: #333; margin-bottom: 48px"
-            >베스페르 피오레 쉘 퍼퓸 헤어 오일</span
-          >
-          <span style="color: #aaa; text-decoration: line-through"
-            >42,000원</span
-          >
-          <p style="color: #333">
-            26,000원
-            <span
-              style="
-                color: #fff;
-                background-color: #333;
-                padding: 3px 4px 2px;
-                font-size: 14px;
-              "
-              >38%</span
-            >
-          </p>
-        </div>
-        <button
-          style="
-            all: unset;
-            cursor: pointer;
-            border: 1px solid #333;
-            padding: 10px 32px;
-            font-size: 14px;
-            line-height: 1;
-          "
-        >
-          SHOP NOW
-        </button>
-      </div>
-      <div
-        class="dscr"
-        style="
-          width: 50%;
-          display: none;
-          flex-direction: column;
-          padding: 100px 0;
-          align-items: center;
-          justify-content: space-between;
-        "
-      >
-        <div class="pro-title">
-          <p
-            style="
-              font-family: 'Times New Roman', serif;
-              font-size: 36px;
-              color: #333;
-            "
-          >
-            Best Product
-          </p>
-        </div>
-        <div
-          class="pro-dscr"
-          style="
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            line-height: 2;
-          "
-        >
-          <h5 style="font-size: 18px; font-weight: 500; color: #333">
-            Vesper Rosa Selvatica Hair Perfume Oil
-          </h5>
-          <span style="color: #333; margin-bottom: 48px"
-            >베스페르 로사 셀바티카 퍼퓸 헤어 오일</span
-          >
-          <span style="color: #aaa; text-decoration: line-through"
-            >42,000원</span
-          >
-          <p style="color: #333">
-            26,000원
-            <span
-              style="
-                color: #fff;
-                background-color: #333;
-                padding: 3px 4px 2px;
-                font-size: 14px;
-              "
-              >38%</span
-            >
-          </p>
-        </div>
-        <button
-          style="
-            all: unset;
-            cursor: pointer;
-            border: 1px solid #333;
-            padding: 10px 32px;
-            font-size: 14px;
-            line-height: 1;
-          "
-        >
-          SHOP NOW
-        </button>
-      </div>
-      <div
-        class="dscr"
-        style="
-          width: 50%;
-          display: none;
-          flex-direction: column;
-          padding: 100px 0;
-          align-items: center;
-          justify-content: space-between;
-        "
-      >
-        <div class="pro-title">
-          <p
-            style="
-              font-family: 'Times New Roman', serif;
-              font-size: 36px;
-              color: #333;
-            "
-          >
-            Best Product
-          </p>
-        </div>
-        <div
-          class="pro-dscr"
-          style="
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            line-height: 2;
-          "
-        >
-          <h5 style="font-size: 18px; font-weight: 500; color: #333">
-            Vesper White Bianco Hair Perfume Oil
-          </h5>
-          <span style="color: #333; margin-bottom: 48px"
-            >베스페르 화이트 비앙코 퍼퓸 헤어 오일</span
-          >
-          <span style="color: #aaa; text-decoration: line-through"
-            >42,000원</span
-          >
-          <p style="color: #333">
-            26,000원
-            <span
-              style="
-                color: #fff;
-                background-color: #333;
-                padding: 3px 4px 2px;
-                font-size: 14px;
-              "
-              >38%</span
-            >
-          </p>
-        </div>
-        <button
-          style="
-            all: unset;
-            cursor: pointer;
-            border: 1px solid #333;
-            padding: 10px 32px;
-            font-size: 14px;
-            line-height: 1;
-          "
-        >
-          SHOP NOW
-        </button>
-      </div>
-      <div
-        class="product-img"
-        style="width: 50%; background-color: #e9e9ec; padding: 100px 0"
-      >
-        <img
-          src="images/fi.png"
-          alt="fi"
-          style="
+        /* 아임웹 충돌 방지를 위해 !important 추가 */
+        .v-product__desc {
             width: 55%;
-            display: block;
-            display: flex;
+            display: none !important;
+            flex-direction: column;
+            padding: 100px 0;
             align-items: center;
-            justify-content: center;
-            margin: auto;
-          "
-        />
-        <img
-          src="images/ro.png"
-          alt="fi"
-          style="
-            width: 55%;
-            display: block;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            margin: auto;
-          "
-        />
-        <img
-          src="images/wh.png"
-          alt="fi"
-          style="
-            width: 55%;
-            display: block;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            margin: auto;
-          "
-        />
-      </div>
-      <div
-        class="pagenation"
-        id="pagenation"
-        style="
-          position: absolute;
-          right: 51%;
-          top: 50%;
-          transform: translateX(-50%);
-          font-size: 38px;
-          color: #1f1f1f;
-          font-weight: 300;
-          cursor: pointer;
-        "
-      >
-        〉
-      </div>
-    </div>
-    <!-- footer -->
-    <footer
-      class="footer"
-      style="
-        display: flex;
-        width: 100%;
-        justify-content: space-around;
-        align-items: center;
-        text-align: center;
-        padding: 100px 0;
-        background-color: #ebebf2;
-      "
-    >
-      <div
-        class="company"
-        style="display: flex; flex-direction: column; gap: 24px"
-      >
-        <div class="footer-title">
-          <h2 style="font-size: 18px; color: #333">COMPANY</h2>
-        </div>
-        <ul class="company-list" style="list-style: none">
-          <li style="color: #333; list-style: none">
-            <strong>COMPANY</strong> vesper
-          </li>
-          <li style="color: #333; list-style: none">
-            <strong>CEO</strong> 권민서
-          </li>
-          <li style="color: #333; list-style: none">
-            <strong>BUSINESS LICENCE</strong> 398-11-02783
-            <a
-              href="https://www.ftc.go.kr/bizCommPop.do?wrkr_no=3981102783"
-              style="color: #333"
-              >[OPERATOR INFORMATION]</a
-            >
-          </li>
-          <li style="color: #333; list-style: none">
-            <strong>ECOMMERCE PERMIT NO</strong> 2025-인천서구-0923
-          </li>
-          <li style="color: #333; list-style: none">
-            <strong>ADDRESS</strong> 22770 인천광역시 서구 중봉대로 490,
-            청라더리브티아모 A동 1016호
-          </li>
-          <li style="color: #333; list-style: none">
-            <strong>EMAIL</strong> vesper2025@naver.com
-          </li>
-        </ul>
-        <p style="color: #333; font-size: 14px">
-          copyright © Vesper All Rights Reserved.
-        </p>
-      </div>
-      <div class="cs" style="display: flex; flex-direction: column; gap: 24px">
-        <div class="footer-title">
-          <h2 style="font-size: 18px; color: #333">CS CENTER</h2>
-        </div>
-        <ul class="cs-list" style="list-style: none">
-          <li style="color: #333; list-style: none">
-            <strong>TEL</strong> 070-7602-7713
-          </li>
-          <li style="color: #333; list-style: none">
-            <strong>OPEN</strong> 11:00am ~ 5:00pm
-          </li>
-          <li style="color: #333; list-style: none">
-            <strong>LUNCH TIME</strong> 12:00pm ~ 1:00pm
-          </li>
-          <li style="color: #333; list-style: none">
-            <strong>SAT, SUN, HOLIDAY OFF</strong>
-          </li>
-        </ul>
-        <div
-          class="icons"
-          style="
+            justify-content: space-between;
+        }
+
+        /* 아임웹 충돌 방지를 위해 !important 추가 */
+        .v-product__desc.is-active {
+            display: flex !important;
+        }
+
+        .v-product__title p {
+            font-family: 'Times New Roman', serif;
+            font-size: 36px;
             color: #333;
-            list-style: none;
+        }
+
+        .v-product__dscr {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 8px;
-            justify-content: center;
-          "
-        >
-          <a
-            href="https://www.instagram.com/official.vesper?igsh=MTlhMG5henExcTg3bA=="
-            ><i
-              class="fa-brands fa-instagram"
-              style="font-size: 26px; display: inline-block; color: #333"
-            ></i
-          ></a>
-          <a href="http://pf.kakao.com/_HAzPn">
-            <i
-              class="fa-brands fa-kakao-talk"
-              style="font-size: 20px; display: inline-block; color: #333"
-            ></i>
-          </a>
+            line-height: 2;
+            color: #333;
+        }
+
+        .v-product__dscr h5 {
+            font-size: 18px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .v-product__dscr span {
+            color: #333;
+        }
+
+        .v-product__dscr .strike {
+            color: #aaa;
+            text-decoration: line-through;
+        }
+
+        .v-product__dscr .discount {
+            color: #fff;
+            background-color: #333;
+            padding: 3px 4px 2px;
+            font-size: 14px;
+        }
+
+        .v-product__btn {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .v-product__btn button {
+            all: unset;
+            cursor: pointer;
+            border: 1px solid #333;
+            padding: 10px 32px;
+            font-size: 14px;
+            line-height: 1;
+            display: inline-block;
+        }
+
+        .v-product__img {
+            width: 45%;
+            background-color: #e9e9ec;
+            padding: 100px 0;
+        }
+
+        /* 아임웹 충돌 방지를 위해 !important 추가 */
+        .v-product__img img {
+            width: 45%;
+            display: none !important;
+            margin: 0 auto;
+        }
+
+        /* 아임웹 충돌 방지를 위해 !important 추가 */
+        .v-product__img img.is-active {
+            display: block !important;
+        }
+
+        .v-product__pager {
+            position: absolute;
+            right: 48% !important;
+            top: 50%;
+            transform: translateX(-50%);
+            font-size: 32px;
+            color: #1f1f1f;
+            font-weight: 300;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        /* 반응형(옵션) : 좁은 화면에서 세로 스택 */
+        @media (max-width: 960px) {
+            .v-product {
+                flex-direction: column;
+                gap: 32px;
+            }
+
+            .v-product__desc,
+            .v-product__img {
+                width: 100%;
+                padding: 60px 0;
+            }
+
+            .v-product__img img {
+                width: 60% !important;
+            }
+
+            .v-product__pager {
+                right: 10px !important;
+                top: 190px;
+                font-size: 28px;
+            }
+        }
+
+        /* 반응형 */
+        @media (max-width: 768px) {
+            .v-product {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .v-product__desc,
+            .v-product__img {
+                width: 100%;
+                padding: 40px 0;
+            }
+
+            .v-product__title p {
+                font-size: 24px;
+            }
+
+            .v-product__dscr {
+                line-height: 1.7;
+                gap: 10px;
+            }
+
+            .v-product__dscr h5 {
+                font-size: 16px;
+                text-align: center;
+            }
+
+            .v-product__dscr span {
+                font-size: 14px;
+            }
+
+            .v-product__dscr p {
+                font-size: 16px;
+            }
+
+            .v-product__dscr .discount {
+                font-size: 12px;
+                padding: 2px 4px;
+            }
+
+            .v-product__btn button {
+                padding: 8px 20px;
+                font-size: 13px;
+            }
+
+            .v-product__img {
+                padding-top: 20px;
+            }
+
+            .v-product__img img {
+                width: 65% !important;
+            }
+
+            .v-product__pager {
+                right: 10px !important;
+                top: 155px;
+                font-size: 28px;
+            }
+        }
+
+        /* 초소형(아이폰 SE 등) 보정 */
+        @media (max-width: 360px) {
+            .v-product__title p {
+                font-size: 22px;
+            }
+
+            .v-product__dscr h5 {
+                font-size: 15px;
+            }
+
+            .v-product__dscr p {
+                font-size: 15px;
+            }
+
+            .v-product__img img {
+                width: 70% !important;
+            }
+
+            .v-product__btn button {
+                font-size: 12px;
+                padding: 8px 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="v-product">
+        <div class="v-product__desc">
+            <div class="v-product__title">
+                <p>Best Product</p>
+            </div>
+            <div class="v-product__dscr">
+                <h5>Vesper Fiore Shell Hair Perfume Oil</h5>
+                <span style="margin-bottom:48px;">베스페르 피오레 쉘 퍼퓸 헤어 오일</span>
+                <span class="strike">42,000원</span>
+                <p>
+                    26,000원
+                    <span class="discount">38%</span>
+                </p>
+            </div>
+            <a class="v-product__btn" href="https://www.vesper.kr/shop">
+                <button>SHOP NOW</button>
+            </a>
         </div>
-      </div>
-      <div
-        class="personal"
-        style="
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          line-height: 1.5;
-        "
-      >
-        <a
-          href="https://vesper.kr/?mode=policy"
-          style="text-decoration: none; color: #333"
-          >이용약관</a
-        >
-        <a
-          href="https://vesper.kr/?mode=privacy"
-          style="text-decoration: none; color: #333; font-weight: 600"
-          >개인정보처리방침</a
-        >
-      </div>
-    </footer>
-    <!--  -->
+
+        <div class="v-product__desc">
+            <div class="v-product__title">
+                <p>Best Product</p>
+            </div>
+            <div class="v-product__dscr">
+                <h5>Vesper Rosa Selvatica Hair Perfume Oil</h5>
+                <span style="margin-bottom:48px;">베스페르 로사 셀바티카 퍼퓸 헤어 오일</span>
+                <span class="strike">42,000원</span>
+                <p>
+                    26,000원
+                    <span class="discount">38%</span>
+                </p>
+            </div>
+            <a class="v-product__btn" href="https://www.vesper.kr/shop">
+                <button>SHOP NOW</button>
+            </a>
+        </div>
+
+        <div class="v-product__desc">
+            <div class="v-product__title">
+                <p>Best Product</p>
+            </div>
+            <div class="v-product__dscr">
+                <h5>Vesper White Bianco Hair Perfume Oil</h5>
+                <span style="margin-bottom:48px;">베스페르 화이트 비앙코 퍼퓸 헤어 오일</span>
+                <span class="strike">42,000원</span>
+                <p>
+                    26,000원
+                    <span class="discount">38%</span>
+                </p>
+            </div>
+            <a class="v-product__btn" href="https://www.vesper.kr/shop">
+                <button>SHOP NOW</button>
+            </a>
+        </div>
+
+        <div class="v-product__img">
+            <img src="https://github.com/miyaajd/vesper/blob/main/images/fi.png?raw=true" alt="fiore" />
+            <img src="https://github.com/miyaajd/vesper/blob/main/images/ro.png?raw=true" alt="rosa" />
+            <img src="https://github.com/miyaajd/vesper/blob/main/images/wh.png?raw=true" alt="white bianco" />
+        </div>
+
+        <div class="v-product__pager" id="vProductPager">&rsaquo;</div>
+    </div>
+
     <script>
-      window.addEventListener("load", function () {
-        // 루트 컨테이너
-        const root = document.querySelector(".product");
-        if (!root) return;
+        document.addEventListener("DOMContentLoaded", function () {
+            const root = document.querySelector(".v-product");
+            if (!root) return;
 
-        // 상단의 3개 상품 설명 블록(.dscr) + 우측 이미지들
-        const pages = root.querySelectorAll(":scope > .dscr"); // 첫 번째 보이는 .dscr 포함 3개
-        const imgs = root.querySelectorAll(".product-img img"); // 이미지 3개
-        const btn = document.getElementById("pagenation"); // 〉 버튼
+            const pages = root.querySelectorAll(".v-product__desc");
+            const imgs = root.querySelectorAll(".v-product__img img");
+            const btn = document.getElementById("vProductPager");
 
-        const n = Math.min(pages.length, imgs.length);
-        let i = 0;
+            const n = Math.min(pages.length, imgs.length);
+            let i = 0; // 현재 인덱스
+            let timer = null; // 자동재생 핸들
+            const GAP = 3000; // 자동 전환 간격(ms)
 
-        // 보여주기 함수
-        function show(idx) {
-          for (let k = 0; k < n; k++) {
-            pages[k].style.display = k === idx ? "flex" : "none";
-            imgs[k].style.display = k === idx ? "block" : "none";
-          }
-        }
+            // 슬라이드 전환 함수
+            function showSlide(nextIndex) {
+                // 현재 슬라이드에서 'is-active' 클래스 제거
+                if (pages[i]) pages[i].classList.remove("is-active");
+                if (imgs[i]) imgs[i].classList.remove("is-active");
 
-        // 초기 상태 정리 (HTML에 남아있는 display 속성 무시)
-        show(0);
+                // 다음 인덱스 계산 및 'is-active' 클래스 추가
+                i = (nextIndex + n) % n;
+                if (pages[i]) pages[i].classList.add("is-active");
+                if (imgs[i]) imgs[i].classList.add("is-active");
+            }
 
-        // 다음/이전 이동
-        function next() {
-          i = (i + 1) % n;
-          show(i);
-        }
-        function prev() {
-          i = (i - 1 + n) % n;
-          show(i);
-        }
+            // 다음 슬라이드로 이동
+            function next() {
+                showSlide(i + 1);
+            }
 
-        // 〉 버튼 클릭 → 다음
-        if (btn) btn.addEventListener("click", next);
+            // 이전 슬라이드로 이동
+            function prev() {
+                showSlide(i - 1);
+            }
 
-        // 마우스 오른쪽(컨텍스트)으로 이전
-        if (btn)
-          btn.addEventListener("contextmenu", (e) => {
-            e.preventDefault();
-            prev();
-          });
+            // 자동재생 시작
+            function startAuto() {
+                stopAuto();
+                timer = setInterval(next, GAP);
+            }
 
-        // 키보드 좌/우 화살표
-        document.addEventListener("keydown", (e) => {
-          if (e.key === "ArrowRight") next();
-          else if (e.key === "ArrowLeft") prev();
+            // 자동재생 중지
+            function stopAuto() {
+                if (timer) {
+                    clearInterval(timer);
+                    timer = null;
+                }
+            }
+
+            // 초기 상태 설정
+            showSlide(0);
+            startAuto();
+
+            // 사용자 상호작용 이벤트
+            if (btn) {
+                btn.addEventListener("click", () => {
+                    stopAuto();
+                    next();
+                    startAuto();
+                });
+                btn.addEventListener("contextmenu", (e) => {
+                    e.preventDefault();
+                    stopAuto();
+                    prev();
+                    startAuto();
+                });
+            }
+
+            document.addEventListener("keydown", (e) => {
+                if (e.key === "ArrowRight") {
+                    stopAuto();
+                    next();
+                    startAuto();
+                } else if (e.key === "ArrowLeft") {
+                    stopAuto();
+                    prev();
+                    startAuto();
+                }
+            });
+
+            // 터치 스와이프
+            let startX = null;
+            root.addEventListener("touchstart", (e) => {
+                startX = e.touches[0].clientX;
+                stopAuto();
+            }, {
+                passive: true
+            });
+            root.addEventListener("touchend", (e) => {
+                if (startX == null) return;
+                const dx = e.changedTouches[0].clientX - startX;
+                if (Math.abs(dx) > 40) (dx < 0 ? next : prev)();
+                startX = null;
+                startAuto();
+            }, {
+                passive: true
+            });
         });
-
-        // 터치 스와이프 (모바일)
-        let startX = null;
-        root.addEventListener(
-          "touchstart",
-          (e) => {
-            startX = e.touches[0].clientX;
-          },
-          { passive: true }
-        );
-        root.addEventListener(
-          "touchend",
-          (e) => {
-            if (startX == null) return;
-            const dx = e.changedTouches[0].clientX - startX;
-            if (Math.abs(dx) > 40) (dx < 0 ? next : prev)(); // 왼쪽으로 스와이프 → 다음
-            startX = null;
-          },
-          { passive: true }
-        );
-      });
     </script>
-  </body>
+</body>
+
 </html>
