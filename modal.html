@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        color: #222;
+        list-style: none;
+        text-decoration: none;
+      }
+      .ves_modal {
+        width: 400px;
+        max-width: 92vw;
+        box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.3);
+        position: fixed;
+        bottom: 3%;
+        left: 2%;
+        z-index: 99999;
+      }
+      .ves_modal_contents {
+        width: 100%;
+        position: relative;
+      }
+      .ves_modal_contents img {
+        width: 100%;
+        display: block;
+      }
+      .ves_modal_contents a {
+        position: absolute;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+        top: 16px;
+        right: 16px;
+        color: #fff;
+      }
+      .ves_modal_btn {
+        border-top: 1px solid #eee;
+        width: 100%;
+        /* background-color: #ddd; */
+        display: flex;
+        justify-content: space-between;
+      }
+      .ves_modal_btn button {
+        all: unset;
+        cursor: pointer;
+        text-align: center;
+        flex: 1;
+        padding: 16px;
+        background-color: #fafafa;
+      }
+      #ves_closeToday {
+        border-right: 0.5px solid #999;
+      }
+      #ves_closeModal {
+        /* background: #ddd;  */
+      }
+      .ves_modal_btn button:focus-visible {
+        outline: 2px solid #222;
+        outline-offset: -2px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ves_modal" id="vesmodal">
+      <div class="ves_modal_contents">
+        <img
+          src="https://github.com/miyaajd/vesper/blob/main/images/kaka.jpg?raw=true"
+          alt="modal"
+        />
+        <a href="https://vesper.imweb.me/shop">VIEW MORE ></a>
+      </div>
+      <div class="ves_modal_btn">
+        <button id="ves_closeToday">오늘 하루 열지 않기</button>
+        <button id="ves_closeModal">닫기</button>
+      </div>
+    </div>
+    <script>
+      // 쿠키 저장
+      function setCookieUntilMidnight(name, value) {
+        const now = new Date();
+        const end = new Date(now);
+        end.setHours(23, 59, 59, 999); // 오늘 끝
+        document.cookie = `${name}=${value}; expires=${end.toUTCString()}; path=/`;
+      }
+
+      // 쿠키 가져옴ㅁ
+      function getCookie(name) {
+        let matches = document.cookie.match(
+          new RegExp("(?:^|; )" + name + "=([^;]*)")
+        );
+        return matches ? decodeURIComponent(matches[1]) : null;
+      }
+
+      // 오늘 하루 보지 않기 버튼
+      document.getElementById("ves_closeToday").onclick = function () {
+        setCookieUntilMidnight("hideEventModal", "true");
+        document.getElementById("vesmodal").style.display = "none";
+      };
+
+      // 그냥 닫기
+      document.getElementById("ves_closeModal").onclick = function () {
+        document.getElementById("vesmodal").style.display = "none";
+      };
+
+      // 페이지 로드 시 쿠키 확인
+      window.onload = function () {
+        if (getCookie("hideEventModal") === "true") {
+          document.getElementById("vesmodal").style.display = "none";
+        }
+      };
+    </script>
+  </body>
+</html>
