@@ -76,7 +76,7 @@
         display: block;
       }
       .swiper-pagination-bullet-active {
-        background: #333;
+        background: #333 !important;
       }
       /* jiyeon */
       .jiyeon {
@@ -128,6 +128,64 @@
         background-color: #fff;
         border-radius: 200px;
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+      }
+      .circle > img {
+        width: 100%;
+        cursor: pointer;
+      }
+      /* video */
+      .interview-bg {
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        position: fixed;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.3s ease;
+        z-index: 999999999999999999;
+      }
+      .interview-bg.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .video {
+        position: relative;
+        width: 0;
+        margin: auto !important;
+        border-radius: 50px;
+        overflow: hidden;
+        transform: scale(0);
+        transition: all 0.5s ease;
+        opacity: 0;
+      }
+      .interview-bg.active .video {
+        width: 30%;
+        transform: scale(1);
+        opacity: 1;
+      }
+      .video > video {
+        width: 100%;
+        display: block;
+      }
+      .video-close {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+      }
+      .video-close > .p {
+        font-weight: 500;
+        color: #fff;
+        padding: 7px 12px 5px 12px;
+        background-color: #333;
+        border-radius: 20px;
+        cursor: pointer;
       }
     </style>
   </head>
@@ -153,22 +211,40 @@
           <div class="swiper handsSwiper">
             <div class="swiper-wrapper">
               <div class="swiper-slide">
-                <img src="https://github.com/miyaajd/vesper/blob/main/images/hands-swiper/h-slide1.jpg?raw=true" alt="slide1" />
+                <img
+                  src="https://github.com/miyaajd/vesper/blob/main/images/hands-swiper/h-slide1.jpg?raw=true"
+                  alt="slide1"
+                />
               </div>
               <div class="swiper-slide">
-                <img src="https://github.com/miyaajd/vesper/blob/main/images/hands-swiper/h-slide2.jpg?raw=true" alt="slide2" />
+                <img
+                  src="https://github.com/miyaajd/vesper/blob/main/images/hands-swiper/h-slide2.jpg?raw=true"
+                  alt="slide2"
+                />
               </div>
               <div class="swiper-slide">
-                <img src="https://github.com/miyaajd/vesper/blob/main/images/hands-swiper/h-slide3.jpg?raw=true" alt="slide3" />
+                <img
+                  src="https://github.com/miyaajd/vesper/blob/main/images/hands-swiper/h-slide3.jpg?raw=true"
+                  alt="slide3"
+                />
               </div>
               <div class="swiper-slide">
-                <img src="https://github.com/miyaajd/vesper/blob/main/images/hands-swiper/h-slide4.jpg?raw=true" alt="slide4" />
+                <img
+                  src="https://github.com/miyaajd/vesper/blob/main/images/hands-swiper/h-slide4.jpg?raw=true"
+                  alt="slide4"
+                />
               </div>
               <div class="swiper-slide">
-                <img src="https://github.com/miyaajd/vesper/blob/main/images/hands-swiper/h-slide5.jpg?raw=true" alt="slide5" />
+                <img
+                  src="https://github.com/miyaajd/vesper/blob/main/images/hands-swiper/h-slide5.jpg?raw=true"
+                  alt="slide5"
+                />
               </div>
               <div class="swiper-slide">
-                <img src="https://github.com/miyaajd/vesper/blob/main/images/hands-swiper/h-slide6.jpg?raw=true" alt="slide6" />
+                <img
+                  src="https://github.com/miyaajd/vesper/blob/main/images/hands-swiper/h-slide6.jpg?raw=true"
+                  alt="slide6"
+                />
               </div>
             </div>
             <div class="swiper-pagination"></div>
@@ -177,7 +253,10 @@
       </div>
       <div class="jiyeon">
         <div class="jiyeon-left">
-          <img src="https://github.com/miyaajd/vesper/blob/main/images/hands-swiper/jiyeon-left.png?raw=true" alt="jiyeon" />
+          <img
+            src="https://github.com/miyaajd/vesper/blob/main/images/hands-swiper/jiyeon-left.png?raw=true"
+            alt="jiyeon"
+          />
         </div>
         <div class="jiyeon-right">
           <div class="jiyeon-txt-box">
@@ -200,7 +279,26 @@
           <span>클릭해서 영상보기 ▶</span>
         </div>
         <div class="interview-video">
-          <div class="circle"></div>
+          <div class="circle">
+            <img
+              src="https://github.com/miyaajd/vesper/blob/main/images/hands-swiper/interview-pre.jpg?raw=true"
+              alt="interview-pre"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="interview-bg">
+        <div class="video">
+          <video
+            id="interview"
+            src="https://cdn.jsdelivr.net/gh/miyaajd/vesper/video/interview.mp4"
+            type="video/mp4"
+            loop
+            muted
+            playsinline
+            controls
+          ></video>
+          <div class="video-close"><p class="p">Close</p></div>
         </div>
       </div>
     </div>
@@ -218,6 +316,31 @@
           disableOnInteraction: false,
         },
         loop: true,
+      });
+      // interview-click
+      const interviewPre = document.querySelector(".circle > img");
+      const interWrap = document.querySelector(".interview-bg");
+      const video = document.getElementById("interview");
+      const body = document.body;
+      interviewPre.addEventListener("click", () => {
+        interWrap.classList.add("active");
+        video.play();
+        body.style.overflow = "hidden";
+      });
+      // interview-close
+      const interviewClose = document.querySelector(".video-close > .p");
+      interviewClose.addEventListener("click", (e) => {
+        e.stopPropagation();
+        interWrap.classList.remove("active");
+        body.style.overflow = "";
+        video.pause();
+      });
+      interWrap.addEventListener("click", (e) => {
+        if (e.target === interWrap) {
+          interWrap.classList.remove("active");
+          body.style.overflow = "";
+          video.pause();
+        }
       });
     </script>
   </body>
