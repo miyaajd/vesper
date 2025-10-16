@@ -53,6 +53,17 @@
         font-size: 16px;
         color: #333;
       }
+      /* mainVideo */
+      #mainVid {
+        width: 100%;
+        max-width: 1920px;
+        height: calc(100vh - 64px);
+        object-fit: cover;
+        margin: auto !important;
+        padding: 0;
+        display: flex;
+        align-items: center;
+      }
       /* hands */
       .hands {
         width: 100%;
@@ -161,6 +172,12 @@
         font-weight: 500;
         color: #444;
       }
+      .down-angle {
+        display: none;
+      }
+      .right-angle {
+        display: inline-block;
+      }
       .circle {
         width: 300px;
         height: 300px;
@@ -239,11 +256,11 @@
         width: 100%;
         display: flex;
         position: relative;
-        margin-bottom: 50px;
       }
 
       /* 아임웹 충돌 방지를 위해 !important 추가 */
       .v-product__desc {
+        /* position: relative; */
         width: 55%;
         display: none !important;
         flex-direction: column;
@@ -343,6 +360,7 @@
         width: 100%;
         margin: 0;
         box-sizing: border-box;
+        margin: 50px 0;
       }
       .link-section .link-list {
         display: flex;
@@ -359,17 +377,19 @@
         width: 100%;
         aspect-ratio: 3/4;
         object-fit: cover;
+        display: block;
       }
       .link-section .link-content {
         width: 100%;
         height: 100%;
-        padding: 15%;
+        padding: 20% 0;
         position: absolute;
         top: 0;
         left: 0;
         display: flex;
         flex-direction: column;
-        gap: 65%;
+        gap: 55%;
+        justify-content: space-between;
         align-items: center;
         text-align: center;
       }
@@ -378,12 +398,15 @@
       }
       .link-section .txt-box h3 {
         font-size: 32px;
-        padding-bottom: 2%;
+        padding-bottom: 10px;
         font-family: "Times New Roman", serif;
         font-weight: 500;
+        color: #fff;
       }
       .link-section .txt-box p {
-        font-size: 16px;
+        font-size: 18px;
+        font-weight: 500;
+        color: #fff;
       }
       .link-section .link-content a {
         text-decoration: none;
@@ -394,40 +417,139 @@
         color: #fff;
         font-size: 16px;
         font-weight: 600;
-        padding: 8px 24px;
+        padding: 12px 24px;
         border: 1.5px solid #fff;
         cursor: pointer;
       }
 
-      /* 반응형(옵션) : 좁은 화면에서 세로 스택 */
-      @media (max-width: 960px) {
-        .v-product {
-          flex-direction: column;
-          gap: 32px;
+      /* ========== 🖥 1024px 이하 : 태블릿 가로 레이아웃 ========== */
+      @media (max-width: 1024px) {
+        #mainVid {
+          height: 80vw;
+        }
+        .hands {
+          padding: 80px 60px;
         }
 
-        .v-product__desc,
-        .v-product__img {
+        .hands-top {
           width: 100%;
-          padding: 60px 0;
         }
 
-        .v-product__img img {
-          width: 60% !important;
+        .hands-txt-box > p {
+          font-size: 15px;
+          line-height: 1.6;
         }
 
-        .v-product__pager {
-          right: 10px !important;
-          top: 250px;
-          font-size: 28px;
+        .hands-bottom {
+          width: 100%;
+          margin-top: 60px;
+        }
+
+        .jiyeon {
+          flex-direction: column;
+        }
+
+        .jiyeon-left,
+        .jiyeon-right {
+          width: 100%;
+        }
+
+        .jiyeon-right {
+          padding: 80px 100px;
+        }
+
+        .interview {
+          flex-direction: column;
+          gap: 40px;
+          text-align: center;
+        }
+
+        .interview-txt {
+          text-align: center;
+        }
+        .down-angle {
+          display: inline-block;
+        }
+        .right-angle {
+          display: none;
+        }
+
+        .link-section {
+          margin: 0;
+        }
+
+        .link-section .link-list {
+          flex-direction: column;
+        }
+
+        .link-section .link-list li {
+          width: 100%;
         }
       }
 
-      /* 반응형 */
+      /* ========== 📱 768px 이하 : 태블릿 세로 / 작은 노트북 ========== */
       @media (max-width: 768px) {
+        #mainVid {
+          height: 75vw;
+        }
+        .h2 {
+          font-size: 28px;
+        }
+
+        .p {
+          font-size: 15px;
+        }
+
+        .hands {
+          padding: 60px 40px;
+        }
+
+        .hands-top {
+          width: 100%;
+        }
+
+        .hands-txt-box > p {
+          font-size: 14px;
+        }
+
+        .view-more-btn {
+          font-size: 14px;
+          padding: 10px 20px;
+        }
+
+        .hands-bottom {
+          width: 100%;
+          margin-top: 50px;
+        }
+
+        .jiyeon {
+          flex-direction: column;
+        }
+
+        .jiyeon-right {
+          padding: 60px 60px;
+        }
+
+        .jiyeon-txt-box > p {
+          margin: 50px 0;
+          gap: 20px;
+          font-size: 15px;
+        }
+
+        .interview {
+          flex-direction: column;
+          gap: 40px;
+        }
+
+        .circle {
+          width: 240px;
+          height: 240px;
+        }
+
         .v-product {
           flex-direction: column;
-          gap: 24px;
+          gap: 32px;
+          padding: 40px 20px;
         }
 
         .v-product__desc,
@@ -437,54 +559,94 @@
         }
 
         .v-product__title p {
-          font-size: 24px;
-        }
-
-        .v-product__dscr {
-          line-height: 1.7;
-          gap: 10px;
-        }
-
-        .v-product__dscr h5 {
-          font-size: 16px;
-          text-align: center;
-        }
-
-        .v-product__dscr span {
-          font-size: 14px;
-        }
-
-        .v-product__dscr p {
-          font-size: 16px;
-        }
-
-        .v-product__dscr .discount {
-          font-size: 12px;
-          padding: 2px 4px;
-        }
-
-        .v-product__btn button {
-          padding: 8px 20px;
-          font-size: 13px;
-        }
-
-        .v-product__img {
-          padding-top: 20px;
+          font-size: 26px;
         }
 
         .v-product__img img {
-          width: 65% !important;
+          width: 60% !important;
         }
 
         .v-product__pager {
-          right: 10px !important;
-          top: 195px;
-          font-size: 28px;
+          right: 10% !important;
+          top: 15%;
+        }
+
+        .link-section .txt-box h3 {
+          font-size: 26px;
+        }
+
+        .link-section .txt-box p {
+          font-size: 15px;
+        }
+
+        .link-section .link-content {
+          padding: 25% 0;
+          gap: 45%;
         }
       }
 
-      /* 초소형(아이폰 SE 등) 보정 */
-      @media (max-width: 360px) {
+      /* ========== 📲 480px 이하 : 모바일 기준 ========== */
+      @media (max-width: 480px) {
+        .h2 {
+          font-size: 22px;
+        }
+
+        .p {
+          font-size: 14px;
+        }
+
+        .hands {
+          padding: 40px 24px;
+        }
+
+        .hands-txt-box > p {
+          margin: 32px 0 20px 0;
+          font-size: 13.5px;
+          line-height: 1.7;
+        }
+
+        .view-more-btn {
+          font-size: 13px;
+          padding: 8px 18px;
+        }
+
+        .hands-bottom {
+          width: 100%;
+          margin-top: 40px;
+        }
+
+        .jiyeon {
+          flex-direction: column;
+        }
+
+        .jiyeon-right {
+          padding: 40px 28px;
+        }
+
+        .jiyeon-txt-box > p {
+          font-size: 14px;
+          margin: 40px 0;
+          line-height: 1.5;
+        }
+
+        .circle {
+          width: 200px;
+          height: 200px;
+        }
+
+        .interview-txt > h2 {
+          font-size: 18px;
+        }
+
+        .interview-txt > span {
+          font-size: 15px;
+        }
+
+        .v-product {
+          padding: 30px 0;
+          flex-direction: column;
+        }
+
         .v-product__title p {
           font-size: 22px;
         }
@@ -493,40 +655,92 @@
           font-size: 15px;
         }
 
-        .v-product__dscr p {
-          font-size: 15px;
-        }
-
-        .v-product__img img {
-          width: 70% !important;
-        }
-
         .v-product__btn button {
           font-size: 12px;
+          padding: 8px 16px;
+        }
+
+        .v-product__pager {
+          right: 7% !important;
+          top: 17%;
+        }
+
+        .link-section .link-list {
+          flex-direction: column;
+        }
+
+        .link-section .link-list li {
+          width: 100%;
+        }
+
+        .link-section .txt-box h3 {
+          font-size: 22px;
+        }
+
+        .link-section .txt-box p {
+          font-size: 14px;
+        }
+
+        .link-section .link-content button {
+          font-size: 13px;
           padding: 8px 18px;
+        }
+      }
+
+      /* ========== 📱 360px 이하 : 초소형 기기 대응 ========== */
+      @media (max-width: 360px) {
+        .h2 {
+          font-size: 20px;
+        }
+
+        .p {
+          font-size: 13px;
+        }
+
+        .hands {
+          padding: 32px 16px;
+        }
+
+        .jiyeon-right {
+          padding: 32px 20px;
+        }
+
+        .jiyeon-txt-box > p {
+          font-size: 13px;
+          gap: 12px;
+        }
+
+        .circle {
+          width: 160px;
+          height: 160px;
+        }
+
+        .v-product__title p {
+          font-size: 20px;
+        }
+
+        .v-product__dscr h5 {
+          font-size: 14px;
+        }
+
+        .v-product__pager {
+          right: 2% !important;
+          top: 20%;
+        }
+
+        .link-section .txt-box h3 {
+          font-size: 20px;
+        }
+
+        .link-section .txt-box p {
+          font-size: 13px;
         }
       }
     </style>
   </head>
   <body>
     <div class="inner">
-      <video
-        id="mainVid"
-        autoplay
-        loop
-        muted
-        playsinline
-        style="
-          width: 100%;
-          max-width: 1920px;
-          height: calc(100vh - 64px);
-          object-fit: cover;
-          margin: auto !important;
-          padding: 0;
-          display: flex;
-          align-items: center;
-        "
-      >
+      <video id="mainVid" autoplay loop muted playsinline>
         <source
           src="https://cdn.jsdelivr.net/gh/miyaajd/vesper/video/noise-normal.mp4"
           type="video/mp4"
@@ -546,7 +760,9 @@
               하루의 온기를 담은 향이 손끝에 오래 머무는 순간, 그 시간이 바로
               Vésper입니다.
             </p>
-            <a href="#"><button class="view-more-btn">VIEW MORE</button></a>
+            <a href="#" target="_top" rel="noopener"
+              ><button class="view-more-btn">VIEW MORE</button></a
+            >
           </div>
         </div>
         <div class="hands-bottom">
@@ -613,7 +829,7 @@
               </span>
               <strong>베스페르의 핸즈라인을 만나보세요.</strong>
             </p>
-            <a href="#"
+            <a href="#" target="_top" rel="noopener"
               ><button class="view-more-btn white-btn">VIEW MORE</button></a
             >
           </div>
@@ -622,7 +838,10 @@
       <div class="interview">
         <div class="interview-txt">
           <h2 class="h2">지연의 인터뷰 영상이 궁금하다면?</h2>
-          <span>클릭해서 영상보기 ▶</span>
+          <span
+            >클릭해서 영상보기 <span class="down-angle">▼</span
+            ><span class="right-angle">▶</span></span
+          >
         </div>
         <div class="interview-video">
           <div class="circle">
@@ -752,25 +971,29 @@
             />
             <div class="link-content">
               <div class="txt-box">
-                <h3>Brand Story</h3>
-                <p>브랜드 스토리</p>
+                <h3 class="serif">Brand Story</h3>
+                <p class="p">브랜드 스토리</p>
               </div>
-              <a href="https://www.vesper.kr/STORES">
+              <a
+                href="https://www.vesper.kr/STORES"
+                target="_top"
+                rel="noopener"
+              >
                 <button>Go To View</button>
               </a>
             </div>
           </li>
           <li>
             <img
-              src="https://miyaajd.github.io/vesper/images/banner.jpeg"
+              src="https://github.com/miyaajd/vesper/blob/main/images/banner.png?raw=true"
               alt="event"
             />
             <div class="link-content">
               <div class="txt-box">
-                <h3>Event</h3>
-                <p>이벤트</p>
+                <h3 class="serif">Event</h3>
+                <p class="p">이벤트</p>
               </div>
-              <a href="#event">
+              <a href="#event" target="_top" rel="noopener">
                 <button>Go To View</button>
               </a>
             </div>
@@ -782,10 +1005,10 @@
             />
             <div class="link-content">
               <div class="txt-box">
-                <h3>Notice</h3>
-                <p>공지사항</p>
+                <h3 class="serif">Notice</h3>
+                <p class="p">공지사항</p>
               </div>
-              <a href="https://www.vesper.kr/39">
+              <a href="https://www.vesper.kr/39" target="_top" rel="noopener">
                 <button>Go To View</button>
               </a>
             </div>
@@ -807,6 +1030,28 @@
           disableOnInteraction: false,
         },
         loop: true,
+        breakpoints: {
+          1200: {
+            slidesPerView: 4,
+            spaceBetween: 30,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 24,
+          },
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          480: {
+            slidesPerView: 1.5,
+            spaceBetween: 16,
+          },
+          360: {
+            slidesPerView: 1,
+            spaceBetween: 10,
+          },
+        },
       });
       // interview-click
       const interviewPre = document.querySelector(".circle > img");
