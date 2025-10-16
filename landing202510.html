@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <!-- font -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+    />
+    <link rel="stylesheet" href="https://use.typekit.net/ywy3aan.css" />
     <!-- Link Swiper's CSS -->
     <link
       rel="stylesheet"
@@ -20,17 +26,31 @@
         list-style: none;
         text-decoration: none;
       }
+      body {
+        font-family: "Pretendard", sans-serif;
+      }
+      .serif {
+        font-family: "benton-modern-display", serif;
+      }
+      button {
+        font-family: "Pretendard", sans-serif;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      button:hover {
+        opacity: 0.8;
+      }
       .inner {
         max-width: 1920px !important;
         margin: auto !important;
         background-color: #fafaf6;
       }
       .h2 {
-        font-size: 42px;
+        font-size: 36px;
         color: #333;
       }
       .p {
-        font-size: 18px;
+        font-size: 16px;
         color: #333;
       }
       /* hands */
@@ -39,22 +59,24 @@
         padding: 100px 30px 120px 180px;
       }
       .hands-top {
-        width: 50%;
+        width: 80%;
       }
       .hands-txt-box {
         width: 100%;
       }
       .hands-txt-box > p {
         margin: 42px 0 25px 0;
+        line-height: 1.5;
+        /* max-width: 80%; */
       }
       .view-more-btn {
         padding: 12px 24px;
         border: none;
         background-color: #e9e9ec;
-        border-radius: 8px;
+        /* border-radius: 8px; */
         font-weight: 500;
         color: #555;
-        font-size: 18px;
+        font-size: 16px;
       }
       .white-btn {
         background-color: #fff;
@@ -101,6 +123,13 @@
       }
       .jiyeon-txt-box > p {
         margin: 80px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        line-height: 1.4;
+      }
+      .jiyeon-txt-box > p > strong {
+        font-weight: 600;
       }
       /* interview */
       .interview {
@@ -139,10 +168,14 @@
         border-radius: 200px;
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         overflow: hidden;
+        transition: all 0.3s ease;
       }
       .circle > img {
         width: 100%;
         cursor: pointer;
+      }
+      .circle:hover {
+        transform: scale(1.1);
       }
       /* video */
       .interview-bg {
@@ -206,6 +239,7 @@
         width: 100%;
         display: flex;
         position: relative;
+        margin-bottom: 50px;
       }
 
       /* 아임웹 충돌 방지를 위해 !important 추가 */
@@ -268,10 +302,11 @@
         all: unset;
         cursor: pointer;
         border: 1px solid #333;
-        padding: 10px 32px;
+        padding: 12px 24px;
         font-size: 14px;
         line-height: 1;
         display: inline-block;
+        font-weight: 500;
       }
 
       .v-product__img {
@@ -302,6 +337,66 @@
         font-weight: 300;
         cursor: pointer;
         user-select: none;
+      }
+      /* ===== Link & Event Section ===== */
+      .link-section {
+        width: 100%;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .link-section .link-list {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .link-section .link-list li {
+        width: calc(100% / 3);
+        position: relative;
+        list-style: none;
+      }
+      .link-section .link-list img {
+        width: 100%;
+        aspect-ratio: 3/4;
+        object-fit: cover;
+      }
+      .link-section .link-content {
+        width: 100%;
+        height: 100%;
+        padding: 15%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 65%;
+        align-items: center;
+        text-align: center;
+      }
+      .link-section .txt-box {
+        color: #fff;
+      }
+      .link-section .txt-box h3 {
+        font-size: 32px;
+        padding-bottom: 2%;
+        font-family: "Times New Roman", serif;
+        font-weight: 500;
+      }
+      .link-section .txt-box p {
+        font-size: 16px;
+      }
+      .link-section .link-content a {
+        text-decoration: none;
+      }
+      .link-section .link-content button {
+        all: unset;
+        display: block;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 600;
+        padding: 8px 24px;
+        border: 1.5px solid #fff;
+        cursor: pointer;
       }
 
       /* 반응형(옵션) : 좁은 화면에서 세로 스택 */
@@ -440,16 +535,18 @@
       <div class="hands">
         <div class="hands-top">
           <div class="hands-txt-box">
-            <h2 class="h2">"Vesper Hands"</h2>
-            <p class="p">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-              amet voluptatem, esse itaque asperiores quibusdam. Quos odio
-              obcaecati cum iste saepe omnis facere, dolores animi modi commodi.
-              Minima, perspiciatis! Adipisci explicabo aliquam doloremque esse,
-              veniam aliquid impedit nostrum minima rem temporibus atque iusto
-              eligendi soluta labore expedita maxime facilis provident!
+            <h2 class="h2 serif">" Vesper Hands "</h2>
+            <p class="p hands-p">
+              하루의 끝, 손끝에 머무는 향과 보습의 리추얼. Vésper Hand Cream은
+              산뜻한 로션처럼 가볍게 스며들어 깊은 보습과 편안한 진정을 부드럽게
+              전합니다.<br />
+              시어버터가 영양을 채우고, 마트리카리아꽃추출물이 피로를 달래며,
+              세라마이드 엔피와 동백나무씨오일이 손끝에 은은한 윤기와 단단한
+              장벽을 더합니다.<br />
+              하루의 온기를 담은 향이 손끝에 오래 머무는 순간, 그 시간이 바로
+              Vésper입니다.
             </p>
-            <button class="view-more-btn">VIEW MORE</button>
+            <a href="#"><button class="view-more-btn">VIEW MORE</button></a>
           </div>
         </div>
         <div class="hands-bottom">
@@ -506,16 +603,19 @@
         </div>
         <div class="jiyeon-right">
           <div class="jiyeon-txt-box">
-            <h2 class="h2">Jiyeon X Vesper</h2>
+            <h2 class="h2 serif">Jiyeon ☓ Vesper</h2>
             <p class="p">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-              amet voluptatem, esse itaque asperiores quibusdam. Quos odio
-              obcaecati cum iste saepe omnis facere, dolores animi modi commodi.
-              Minima, perspiciatis! Adipisci explicabo aliquam doloremque esse,
-              veniam aliquid impedit nostrum minima rem temporibus atque iusto
-              eligendi soluta labore expedita maxime facilis provident!
+              지연과 함께 맞이하는 베스페르의 첫 핸즈라인<br />
+              <span>
+                은은한 향과 깊은 보습으로 완성된 베스페르만의 무드를
+                느껴보세요<br />
+                손끝에 스며드는 부드러움, 향으로 기억되는 존재감<br />
+              </span>
+              <strong>베스페르의 핸즈라인을 만나보세요.</strong>
             </p>
-            <button class="view-more-btn white-btn">VIEW MORE</button>
+            <a href="#"
+              ><button class="view-more-btn white-btn">VIEW MORE</button></a
+            >
           </div>
         </div>
       </div>
@@ -543,6 +643,8 @@
             muted
             playsinline
             controls
+            controlsList="nodownload"
+            oncontextmenu="return false;"
           ></video>
           <div class="video-close"><p class="p">Close</p></div>
         </div>
@@ -550,7 +652,7 @@
       <div class="v-product">
         <div class="v-product__desc">
           <div class="v-product__title">
-            <p>Best Product</p>
+            <p class="serif">Best Product</p>
           </div>
           <div class="v-product__dscr">
             <h5>Vesper Fiore Shell Hair Perfume Oil</h5>
@@ -639,6 +741,56 @@
         </div>
 
         <div class="v-product__pager" id="vProductPager">&rsaquo;</div>
+      </div>
+      <!-- Link & Event Section -->
+      <div class="link-section">
+        <ul class="link-list">
+          <li>
+            <img
+              src="https://github.com/miyaajd/vesper/blob/main/images/imd2.png?raw=true"
+              alt="brandstory"
+            />
+            <div class="link-content">
+              <div class="txt-box">
+                <h3>Brand Story</h3>
+                <p>브랜드 스토리</p>
+              </div>
+              <a href="https://www.vesper.kr/STORES">
+                <button>Go To View</button>
+              </a>
+            </div>
+          </li>
+          <li>
+            <img
+              src="https://miyaajd.github.io/vesper/images/banner.jpeg"
+              alt="event"
+            />
+            <div class="link-content">
+              <div class="txt-box">
+                <h3>Event</h3>
+                <p>이벤트</p>
+              </div>
+              <a href="#event">
+                <button>Go To View</button>
+              </a>
+            </div>
+          </li>
+          <li>
+            <img
+              src="https://github.com/miyaajd/vesper/blob/main/images/flower.jpg?raw=true"
+              alt="notice"
+            />
+            <div class="link-content">
+              <div class="txt-box">
+                <h3>Notice</h3>
+                <p>공지사항</p>
+              </div>
+              <a href="https://www.vesper.kr/39">
+                <button>Go To View</button>
+              </a>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
     <!-- js -->
