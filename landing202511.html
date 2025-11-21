@@ -150,10 +150,16 @@
         align-items: center;
         justify-content: center;
         gap: 80px;
-        background: linear-gradient(
+        /* background: linear-gradient(
           to bottom,
           #fafaf6 0%,
           #dcdce8 50%,
+          #fafaf6 100%
+        ); */
+        background: radial-gradient(
+          circle,
+          #dcdce8 0%,
+          #fafaf6 90%,
           #fafaf6 100%
         );
       }
@@ -163,6 +169,7 @@
         flex-direction: column;
         gap: 20px;
       }
+
       .interview-txt > h2 {
         color: #383848;
         font-weight: bold;
@@ -366,13 +373,16 @@
       .link-section .link-list {
         display: flex;
         list-style: none;
-        padding: 0;
+        gap: 2%;
+        padding: 0 2%;
         margin: 0;
       }
       .link-section .link-list li {
         width: calc(100% / 3);
         position: relative;
         list-style: none;
+        border-radius: 40px;
+        overflow: hidden;
       }
       .link-section .link-list img {
         width: 100%;
@@ -383,30 +393,26 @@
       .link-section .link-content {
         width: 100%;
         height: 100%;
-        padding: 20% 0;
+        padding: 10% 8%;
         position: absolute;
         top: 0;
         left: 0;
         display: flex;
         flex-direction: column;
-        gap: 55%;
         justify-content: space-between;
-        align-items: center;
-        text-align: center;
       }
       .link-section .txt-box {
         color: #fff;
       }
       .link-section .txt-box h3 {
-        font-size: 32px;
+        font-family: "pretendard";
+        font-size: 30px;
         padding-bottom: 10px;
-        font-family: "Times New Roman", serif;
-        font-weight: 500;
+        font-weight: 400;
         color: #fff;
       }
       .link-section .txt-box p {
         font-size: 18px;
-        font-weight: 500;
         color: #fff;
       }
       .link-section .link-content a {
@@ -415,12 +421,24 @@
       .link-section .link-content button {
         all: unset;
         display: block;
-        color: #fff;
-        font-size: 16px;
+        color: #666;
+        font-size: 18px;
+        line-height: 1;
         font-weight: 600;
-        padding: 12px 24px;
-        border: 1.5px solid #fff;
+        aspect-ratio: 1 / 1;
+        width: 55px;
+        background: rgba(255, 255, 255, 0.85);
+        /* background: #fff; */
         cursor: pointer;
+        border-radius: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: auto;
+        transition: all 0.2s ease-in-out;
+      }
+      .link-section .link-content button:hover {
+        transform: scale(1.1);
       }
 
       /* ========== 🖥 1024px 이하 : 태블릿 가로 레이아웃 ========== */
@@ -479,16 +497,18 @@
           height: 80vw;
         }
 
-        .link-section {
-          margin: 0;
+        .link-section .txt-box h3 {
+          font-size: 24px;
+          padding-bottom: 8px;
+        }
+        .link-section .txt-box p {
+          font-size: 14px;
+          color: #fff;
         }
 
-        .link-section .link-list {
-          flex-direction: column;
-        }
-
-        .link-section .link-list li {
-          width: 100%;
+        .link-section .link-content button {
+          font-size: 16px;
+          width: 40px;
         }
       }
 
@@ -578,18 +598,24 @@
           right: 10% !important;
           top: 15%;
         }
-
+        .link-section .link-list {
+          flex-direction: column;
+          gap: 30px;
+        }
+        .link-section .link-list li {
+          width: 90%;
+          margin: auto;
+        }
         .link-section .txt-box h3 {
-          font-size: 26px;
+          font-size: 32px;
         }
 
         .link-section .txt-box p {
-          font-size: 15px;
+          font-size: 18px;
         }
-
-        .link-section .link-content {
-          padding: 25% 0;
-          gap: 45%;
+        .link-section .link-content button {
+          font-size: 18px;
+          width: 55px;
         }
       }
 
@@ -677,25 +703,24 @@
           top: 17%;
         }
 
-        .link-section .link-list {
-          flex-direction: column;
+        .link-section{
+          margin: 30px 0;
         }
 
-        .link-section .link-list li {
-          width: 100%;
+        .link-section .link-list{
+          gap: 20px;
         }
 
         .link-section .txt-box h3 {
-          font-size: 22px;
+          font-size: 24px;
         }
 
         .link-section .txt-box p {
-          font-size: 14px;
+          font-size: 16px;
         }
-
         .link-section .link-content button {
-          font-size: 13px;
-          padding: 8px 18px;
+          font-size: 16px;
+          width: 45px;
         }
       }
 
@@ -746,6 +771,10 @@
 
         .link-section .txt-box p {
           font-size: 13px;
+        }
+        .link-section .link-content button {
+          font-size: 14px;
+          width: 35px;
         }
       }
     </style>
@@ -991,7 +1020,7 @@
                 target="_top"
                 rel="noopener"
               >
-                <button>Go To View</button>
+                <button>→</button>
               </a>
             </div>
           </li>
@@ -1005,8 +1034,9 @@
                 <h3 class="serif">Event</h3>
                 <p class="p">이벤트</p>
               </div>
+              <!-- 블랙프라이데이 카테고리 주소 연결하기 ***************************************************************************************-->
               <a href="#" target="_top" rel="noopener">
-                <button>Go To View</button>
+                <button>→</button>
               </a>
             </div>
           </li>
@@ -1021,7 +1051,7 @@
                 <p class="p">공지사항</p>
               </div>
               <a href="https://www.vesper.kr/39" target="_top" rel="noopener">
-                <button>Go To View</button>
+                <button>→</button>
               </a>
             </div>
           </li>
