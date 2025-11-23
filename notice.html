@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .notice-wrap {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 100px;
+        color: #333;
+        margin: auto;
+      }
+      .delivery {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 48px;
+      }
+      .delivery-title h2 {
+        font-size: 24px;
+        font-weight: 500;
+        text-align: center;
+      }
+      .delivery-img {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+      }
+      .delivery img {
+        display: block;
+        width: 40%;
+      }
+      .kaka {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 48px;
+      }
+      .kaka h2 {
+        font-size: 24px;
+        font-weight: 500;
+        text-align: center;
+      }
+      .kaka img {
+        width: 40%;
+        margin: auto;
+      }
+      /* 모바일 */
+      @media (max-width: 768px) {
+        .notice-wrap {
+          gap: 48px;
+          padding: 0 16px;
+        }
+
+        /* Delivery */
+        .delivery {
+          gap: 24px;
+        }
+        .delivery-title h2 {
+          font-size: 20px;
+        }
+        .delivery-img {
+          flex-direction: column;
+          gap: 12px;
+          align-items: center;
+        }
+        .delivery-img img {
+          width: 100%;
+          max-width: 520px;
+          height: auto;
+        }
+
+        /* Kakao */
+        .kaka {
+          gap: 24px;
+        }
+        .kaka h2 {
+          font-size: 20px;
+          line-height: 1.4;
+        }
+        .kaka img {
+          width: 100% !important;
+          max-width: 520px;
+          height: auto;
+        }
+      }
+
+      /* 초소형 */
+      @media (max-width: 360px) {
+        .delivery-title h2,
+        .kaka h2 {
+          font-size: 18px;
+        }
+        .notice-wrap {
+          gap: 40px;
+        }
+        .delivery {
+          gap: 20px;
+        }
+        .kaka {
+          gap: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="notice-wrap">
+      <div class="kaka">
+        <div class="kaka-title">
+          <h2>BLACK FRIDAY Event</h2>
+        </div>
+        <img
+          src="https://github.com/miyaajd/vesper/blob/main/images/blackfriday_banner_1.jpg?raw=true"
+          alt="이벤트2"
+        />
+      </div>
+      <div class="delivery">
+        <div class="delivery-title"><h2>Launching Event</h2></div>
+        <div class="delivery-img">
+          <img
+            src="https://github.com/miyaajd/vesper/blob/main/images/jiyeon_hands.jpeg?raw=true"
+            alt="이벤트1"
+          />
+        </div>
+      </div>
+      <div class="kaka">
+        <div class="kaka-title">
+          <h2>Kakao Channel Event</h2>
+        </div>
+        <img
+          src="https://github.com/miyaajd/vesper/blob/main/images/kaka.jpg?raw=true"
+          alt="이벤트3"
+        />
+      </div>
+    </div>
+  </body>
+</html>

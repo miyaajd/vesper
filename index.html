@@ -17,6 +17,7 @@
     />
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
     <style>
       * {
         margin: 0;
@@ -152,12 +153,6 @@
         align-items: center;
         justify-content: center;
         gap: 80px;
-        /* background: linear-gradient(
-          to bottom,
-          #fafaf6 0%,
-          #dcdce8 50%,
-          #fafaf6 100%
-        ); */
         background: radial-gradient(
           circle,
           #dcdce8 0%,
@@ -221,9 +216,8 @@
         z-index: 999999999999999999;
       }
       .interview-bg.active {
-        opacity: 1;
-        pointer-events: auto;
-        /* margin-top: 200px; */
+        opacity: 1 !important;
+        pointer-events: auto !important;
       }
       .video {
         position: relative;
@@ -236,10 +230,10 @@
         opacity: 0;
       }
       .interview-bg.active .video {
-        width: auto;
+        width: auto !important;
         height: 50vw;
-        transform: scale(1);
-        opacity: 1;
+        transform: scale(1) !important;
+        opacity: 1 !important;
       }
       .video > video {
         height: 100%;
@@ -409,7 +403,7 @@
       .link-section .txt-box h3 {
         font-family: "pretendard";
         font-size: 30px;
-        padding-bottom: 10px;
+        /* padding-bottom: 10px; */
         font-weight: 400;
         color: #fff;
       }
@@ -501,7 +495,7 @@
 
         .link-section .txt-box h3 {
           font-size: 24px;
-          padding-bottom: 8px;
+          /* padding-bottom: 8px; */
         }
         .link-section .txt-box p {
           font-size: 14px;
@@ -783,7 +777,11 @@
   </head>
   <body>
     <div class="inner">
-      <img src="https://github.com/miyaajd/vesper/blob/main/images/visual-jiyeon.webp?raw=true" alt="mainVid" id="mainVid">
+      <img
+        src="https://github.com/miyaajd/vesper/blob/main/images/visual-jiyeon.webp?raw=true"
+        alt="mainVid"
+        id="mainVid"
+      />
       <div class="hands">
         <div class="hands-top">
           <div class="hands-txt-box">
@@ -1059,7 +1057,7 @@
     <script>
       var swiper = new Swiper(".handsSwiper", {
         slidesPerView: 4,
-        spaceBetween: 30,
+        spaceBetween: 20,
         pagination: {
           el: ".swiper-pagination",
           clickable: true,
@@ -1072,11 +1070,11 @@
         breakpoints: {
           1200: {
             slidesPerView: 4,
-            spaceBetween: 30,
+            spaceBetween: 20,
           },
           1024: {
             slidesPerView: 3,
-            spaceBetween: 24,
+            spaceBetween: 20,
           },
           768: {
             slidesPerView: 2,
