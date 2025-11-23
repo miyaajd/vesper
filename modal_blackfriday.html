@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- font -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+    />
+    <link rel="stylesheet" href="https://use.typekit.net/ywy3aan.css" />
+    <!-- Link Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        color: #222;
+        list-style: none;
+        text-decoration: none;
+      }
+      body {
+        font-family: "Pretendard", sans-serif;
+      }
+      .serif {
+        font-family: "benton-modern-display", serif;
+      }
+      button {
+        font-family: "Pretendard", sans-serif;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      .ves_modal {
+        width: 600px;
+        max-width: 92vw;
+        box-shadow: 0 0 40px 10px rgba(0, 0, 0, 0.2);
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 99999;
+        border-radius: 20px;
+        overflow: hidden;
+      }
+      .ves_modal_contents {
+        width: 100%;
+        position: relative;
+      }
+      .ves_modal_contents img {
+        width: 100%;
+        display: block;
+      }
+      .ves_modal_contents a {
+        position: absolute;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+        top: 16px;
+        right: 16px;
+        color: #fff;
+      }
+      .ves_modal_btn {
+        border-top: 1px solid #eee;
+        width: 100%;
+        /* background-color: #ddd; */
+        display: flex;
+        justify-content: space-between;
+      }
+      .ves_modal_btn button {
+        all: unset;
+        cursor: pointer;
+        text-align: center;
+        flex: 1;
+        padding: 16px;
+        background-color: #fafafa;
+      }
+      #ves_closeToday {
+        border-right: 0.5px solid #999;
+      }
+      .ves_modal_btn button:focus-visible {
+        outline: 2px solid #222;
+        outline-offset: -2px;
+      }
+
+      /* 페이지네이션 */
+      .swiper-pagination-bullet-active {
+        background: #333 !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ves_modal" id="vesmodal">
+      <div class="ves_modal_contents">
+        <!-- Swiper -->
+        <div class="swiper modalSwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img
+                src="https://github.com/miyaajd/vesper/blob/main/images/blackfriday_banner_2.jpg?raw=true"
+                alt="modal1"
+              />
+            </div>
+            <div class="swiper-slide">
+              <img
+                src="https://github.com/miyaajd/vesper/blob/main/images/blackfriday_banner_1.jpg?raw=true"
+                alt="modal2"
+              />
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+        <a href="https://vesper.imweb.me/shop">VIEW MORE ></a>
+      </div>
+      <div class="ves_modal_btn">
+        <button id="ves_closeToday">오늘 하루 열지 않기</button>
+        <button id="ves_closeModal">닫기</button>
+      </div>
+    </div>
+    <script>
+      var swiper = new Swiper(".modalSwiper", {
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
+        loop: true,
+      });
+
+      // 쿠키 저장 (오늘 자정까지)
+      function setCookieUntilMidnight(name, value) {
+        const now = new Date();
+        const end = new Date(now);
+        end.setHours(23, 59, 59, 999); // 오늘 끝까지
+        document.cookie = `${name}=${value}; expires=${end.toUTCString()}; path=/`;
+      }
+
+      // 쿠키 가져오기
+      function getCookie(name) {
+        let matches = document.cookie.match(
+          new RegExp("(?:^|; )" + name + "=([^;]*)")
+        );
+        return matches ? decodeURIComponent(matches[1]) : null;
+      }
+
+      // 현재 페이지가 메인인지 확인 (아임웹은 보통 / 또는 /home 이런 구조)
+      function isMainPage() {
+        const path = window.location.pathname;
+        return path === "/" || path === "/index" || path === "/index.html";
+      }
+
+      // 페이지 로드 시 실행
+      window.addEventListener("DOMContentLoaded", function () {
+        const modal = document.getElementById("vesmodal");
+        const hideToday = getCookie("hideEventModal") === "true";
+
+        // 메인 페이지이면서, 오늘 보지 않기 쿠키가 없을 때만 표시
+        if (isMainPage() && !hideToday) {
+          modal.style.display = "block";
+        }
+
+        // 오늘 하루 닫기 버튼
+        document.getElementById("ves_closeToday").onclick = function () {
+          setCookieUntilMidnight("hideEventModal", "true");
+          modal.style.display = "none";
+        };
+
+        // 그냥 닫기 버튼
+        document.getElementById("ves_closeModal").onclick = function () {
+          modal.style.display = "none";
+        };
+      });
+    </script>
+  </body>
+</html>
