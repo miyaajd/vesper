@@ -1,11 +1,126 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TOP & Quick Buttons</title>
+    <style>
+      body {
+        height: 1200px; /* 테스트용 높이 */
+      }
+
+      /* 공통: 퀵버튼 박스 */
+      #quickButtons {
+        display: block; /* 항상 표시 */
+        position: fixed;
+        bottom: 20px;
+        right: 15px; /* 기본 PC 기준 */
+        z-index: 9999;
+      }
+
+      #quickButtons ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: column; /* 위아래 배치 */
+        gap: 5px; /* 버튼 간 간격 */
+      }
+
+      #quickButtons li {
+        list-style: none;
+      }
+
+      #quickButtons button,
+      #quickButtons a {
+        border: none;
+        padding: 0;
+        background: none;
+        cursor: pointer;
+      }
+
+      #quickButtons img {
+        display: block;
+        width: 70px;
+        height: 70px; /* PC 사이즈 */
+      }
+
+      /* 블프버튼 애니메이션 */
+      #blackF {
+        animation: floatY 2.5s ease-in-out infinite;
+      }
+
+      /* 모바일용 사이즈 & 위치 조정 */
+      @media (max-width: 767px) {
+        #quickButtons {
+          right: 5px;
+        }
+
+        #quickButtons img {
+          width: 55px;
+          height: 55px;
+        }
+      }
+      @keyframes floatY {
+        0% {
+          transform: translate3d(0, 0, 0);
+        }
+        50% {
+          transform: translate3d(0, -5px, 0);
+        }
+        100% {
+          transform: translate3d(0, 0, 0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 퀵 버튼(PC+모바일 공용) -->
+    <div id="quickButtons">
+      <ul>
+        <!-- 항상 보이는 퀵버튼 -->
+        <li id="blackF">
+          <a href="https://www.vesper.kr/45">
+            <img
+              src="https://github.com/miyaajd/vesper/blob/main/images/blackfriday_quick_btn.png?raw=true"
+              alt="QUICK"
+            />
+          </a>
+        </li>
+
+        <!-- TOP 버튼: 기본 숨김 -->
+        <li id="topBtn">
+          <button type="button" onclick="topFunction()">
+            <img
+              src="https://github.com/miyaajd/vesper/blob/main/images/goTop_v2.png?raw=true"
+              alt="TOP"
+            />
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <script>
+      // 스크롤 시 TOP 버튼만 제어
+      window.addEventListener("scroll", scrollFunction);
+
+      function scrollFunction() {
+        const scrollTop =
+          document.documentElement.scrollTop || document.body.scrollTop;
+
+        // const topBtn = document.getElementById("topBtn");
+
+        // if (scrollTop > 100) {
+        //   topBtn.style.display = "block";
+        // } else {
+        //   topBtn.style.display = "none";
+        }
+      }
+
+      // TOP으로 부드럽게 이동
+      function topFunction() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    </script>
+  </body>
 </html>

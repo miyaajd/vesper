@@ -109,6 +109,11 @@
           document.getElementById("vesmodal").style.display = "none";
         }
       };
+
+      // 메인페이지에서만 노출
+      function isMainPage() {
+  return window.location.href === "https://www.vesper.kr/";
+}
     </script>
   </body>
 </html>

@@ -38,6 +38,7 @@
         transition: all 0.3s ease;
       }
       .ves_modal {
+        display: none; /* 처음에는 숨김 */
         width: 600px;
         max-width: 92vw;
         box-shadow: 0 0 40px 10px rgba(0, 0, 0, 0.2);
@@ -57,13 +58,13 @@
         width: 100%;
         display: block;
       }
-      .ves_modal_contents a {
+      /* .ves_modal_contents a {
         position: absolute;
         text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
         top: 16px;
         right: 16px;
         color: #fff;
-      }
+      } */
       .ves_modal_btn {
         border-top: 1px solid #eee;
         width: 100%;
@@ -91,6 +92,14 @@
       .swiper-pagination-bullet-active {
         background: #333 !important;
       }
+
+      /* 슬라이드 */
+      .swiper-slide {
+        cursor: pointer;
+      }
+      .swiper-slide a {
+        display: block;
+      }
     </style>
   </head>
   <body>
@@ -100,21 +109,23 @@
         <div class="swiper modalSwiper">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
-              <img
-                src="https://github.com/miyaajd/vesper/blob/main/images/blackfriday_banner_2.jpg?raw=true"
-                alt="modal1"
-              />
+              <a href="https://www.vesper.kr/45" target="_top" rel="noopener">
+                <img
+                  src="https://github.com/miyaajd/vesper/blob/main/images/blackfriday_banner_2.jpg?raw=true"
+                  alt="modal1"
+              /></a>
             </div>
             <div class="swiper-slide">
-              <img
-                src="https://github.com/miyaajd/vesper/blob/main/images/blackfriday_banner_1.jpg?raw=true"
-                alt="modal2"
-              />
+              <a href="https://www.vesper.kr/45" target="_top" rel="noopener">
+                <img
+                  src="https://github.com/miyaajd/vesper/blob/main/images/blackfriday_banner_1.jpg?raw=true"
+                  alt="modal2"
+              /></a>
             </div>
           </div>
           <div class="swiper-pagination"></div>
         </div>
-        <a href="https://vesper.imweb.me/shop">VIEW MORE ></a>
+        <!-- <a href="https://vesper.imweb.me/shop">VIEW MORE ></a> -->
       </div>
       <div class="ves_modal_btn">
         <button id="ves_closeToday">오늘 하루 열지 않기</button>
